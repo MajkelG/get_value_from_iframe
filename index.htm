@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        iframe {
+            border: 1px dashed red;
+            border-radius: 8px;
+            height: 400px;
+        }
+    </style>
+    iFrame:<br/>
+    <iframe id="iframe" src="iframe.htm"></iframe>
+    <div>
+        <p>Wartość przekazana z iframe: <span id="value">???</span></p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#iframe').load(function () {
+                var btn = $('#iframe').contents().find('#btnIframe');
+                $(btn).on('click', function () {
+                    $('#value').html('No i wziął i przekazał!');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
